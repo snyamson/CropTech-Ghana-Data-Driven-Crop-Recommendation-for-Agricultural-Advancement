@@ -7,7 +7,7 @@ router = APIRouter()
 
 # Load environment variables from a .env.local file
 load_dotenv('.env.local')
-API_KEY = getenv('OPENWEATHER_API_KEY')
+OPENWEATHER_API_KEY = getenv('OPENWEATHER_API_KEY')
 
 
 
@@ -22,7 +22,7 @@ async def get_ip_information():
                 lat = ip_info.get("latitude")
 
                 # Fetch weather information
-                weather_url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}"
+                weather_url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={OPENWEATHER_API_KEY}"
 
                 weather_response = await client.get(weather_url)
                 if weather_response.status_code == 200:
